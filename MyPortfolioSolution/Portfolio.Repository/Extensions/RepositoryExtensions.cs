@@ -26,7 +26,7 @@ namespace Portfolio.Repositories.Extensions
             // interface gördüğünde class'tan nesne üret
             // Scoped Response olduğunda nesneyi silmek için kullanılıyor.
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWorkRepository, UnitOfWorkRepository>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             return services;
