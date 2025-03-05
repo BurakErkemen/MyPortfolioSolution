@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Portfolio.Repositories.Extensions;
 using Portfolio.Services.Extensions;
 
@@ -10,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// .Net Hata mesajý kapatýldý. 
+builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
 
 
 builder.Services.AddRepositories(builder.Configuration).AddServices(builder.Configuration);
@@ -17,6 +20,7 @@ builder.Services.AddRepositories(builder.Configuration).AddServices(builder.Conf
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

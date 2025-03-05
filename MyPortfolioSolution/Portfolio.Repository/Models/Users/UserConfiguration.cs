@@ -41,6 +41,10 @@ namespace Portfolio.Repositories.Models.Users
             // Rol için varsayılan değer
             builder.Property(u => u.Role)
                    .HasDefaultValue(UserRoles.User);
+
+            // Actıvate 
+            builder.Property(u => u.IsActivate)
+                .HasDefaultValue(AccountStatus.Active);
         }
     }
 }

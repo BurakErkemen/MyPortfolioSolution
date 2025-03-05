@@ -1,2 +1,2 @@
-﻿namespace Portfolio.Services.Assembly;
+﻿namespace Portfolio.Services.ServiceAssembly;
 public struct ServiceAssembly;
