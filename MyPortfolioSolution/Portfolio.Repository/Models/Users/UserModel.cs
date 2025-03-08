@@ -8,7 +8,7 @@
         public string Email { get; set; } = default!;
         public string Password { get; set; } = default!;
         public UserRoles Role { get; set; }
-        public AccountStatus IsActivate { get; set; }; 
+        public AccountStatus IsActivate { get; set; }
         public DateTime CreatedAt { get; set; }
     }
     public enum UserRoles

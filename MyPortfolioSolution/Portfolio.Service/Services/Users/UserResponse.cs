@@ -2,7 +2,6 @@
 
 namespace Portfolio.Services.Services.Users;
 public record UserResponse(
-    int Id, 
     string Name, 
     string PhotoURL, 
     string Email, 

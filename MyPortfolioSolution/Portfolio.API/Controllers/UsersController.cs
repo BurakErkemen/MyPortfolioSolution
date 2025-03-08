@@ -6,5 +6,6 @@ namespace Portfolio.API.Controllers
     [ApiController]
     public class UsersController : CustomBaseController
     {
+
     }
 }

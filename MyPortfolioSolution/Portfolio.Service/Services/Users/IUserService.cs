@@ -9,9 +9,10 @@ namespace Portfolio.Services.Services.Users
         Task<ServiceResult> ReactivateAccountAsync(UpdateUserRequest request);// Hesabı tekrar aktif hale getir.
         Task<ServiceResult> UpdateUserRoleAsync(UpdateUserRequest request); // Admin, yazar gibi rolleri güncelle.
 
-        Task<ServiceResult<UserResponse?>> GetAllAsync();
+        Task<ServiceResult<List<UserResponse>>> GetAllAsync();
         Task<ServiceResult<UserResponse?>> GetByIdAsync(int id);
-        Task<ServiceResult<CreateUserResponse>> CreateAsync(CreateUserRequest request);
+        Task<ServiceResult<List<UserResponse>>> GetByNameAsync(string Name);
+        Task<ServiceResult<CreateUserResponse?>> CreateAsync(CreateUserRequest request);
         Task<ServiceResult> UpdateAsync(UpdateUserRequest request);
         Task<ServiceResult> DeleteAsync(int id);
     }
