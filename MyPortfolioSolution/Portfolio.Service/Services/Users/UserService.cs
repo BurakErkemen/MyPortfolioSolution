@@ -9,42 +9,45 @@ namespace Portfolio.Services.Services.Users
 {
     public class UserService(IUserRepository userRepository, IUnitOfWorkRepository unitOfWork) : IUserService
     {
-        public async Task<ServiceResult> DeactivateAccountAsync(UpdateUserRequest request) // Hesabı pasif hale getir.
+        public async Task<ServiceResult> DeactivateAccountAsync(string email) // Hesabı pasif hale getir.
         {
-            var user = await userRepository.GetByEmailAsync(request.Email);
+            var user = await userRepository.GetByEmailAsync(email);
             if (user == null) return ServiceResult.Fail("User not found", HttpStatusCode.NotFound);
 
             // Kullanıcının hesabını pasif hale getir
-            user.IsActivate = request.AccountStatus;
+            user.IsActivate = AccountStatus.Active;
             userRepository.UpdateAsync(user);
             await unitOfWork.SaveChangesAsync();
 
             return ServiceResult.Success(HttpStatusCode.NoContent);
         }
-        public async Task<ServiceResult> ReactivateAccountAsync(UpdateUserRequest request) // Hesabı tekrar aktif hale getir.
+
+        public async Task<ServiceResult> ReactivateAccountAsync(string email) // Hesabı tekrar aktif hale getir.
         {
-            var user = await userRepository.GetByEmailAsync(request.Email);
+            var user = await userRepository.GetByEmailAsync(email);
             if (user == null) return ServiceResult.Fail("User not found!", HttpStatusCode.NotFound);
 
             // Kullanıcının hesabını aktif hale getir 
-            user.IsActivate = request.AccountStatus;
+            user.IsActivate = AccountStatus.Deactivated;
             userRepository.UpdateAsync(user);
             await unitOfWork.SaveChangesAsync();
 
             return ServiceResult.Success(HttpStatusCode.NoContent);
         }
-        public async Task<ServiceResult> UpdateUserRoleAsync(UpdateUserRequest request) // Admin, yazar gibi rolleri güncelle.
+
+        public async Task<ServiceResult> UpdateUserRoleAsync(int Id, UserRoles UserRole) // Admin, yazar gibi rolleri güncelle.
         {
-            var user = await userRepository.GetByIdAsync(request.Id);
+            var user = await userRepository.GetByIdAsync(Id);
             if (user == null) return ServiceResult.Fail("User not found!", HttpStatusCode.NotFound);
 
             // Rol güncelleme
-            user.Role = request.Role;
+            user.Role = UserRole;
             userRepository.UpdateAsync(user);
             await unitOfWork.SaveChangesAsync();
 
             return ServiceResult.Success(HttpStatusCode.NoContent);
         }
+
         public async Task<ServiceResult<List<UserResponse>>> GetAllAsync()
         {
             var user = await userRepository.GetAll().ToListAsync();
@@ -60,6 +63,7 @@ namespace Portfolio.Services.Services.Users
 
             return ServiceResult<List<UserResponse>>.Success(userAsResponse);
         }
+
         public async Task<ServiceResult<UserResponse?>> GetByIdAsync(int id)
         {
             var user = await userRepository.GetByIdAsync(id);
@@ -115,6 +119,7 @@ namespace Portfolio.Services.Services.Users
             return ServiceResult<CreateUserResponse?>.Success(
                 new CreateUserResponse(user.Id),HttpStatusCode.Created);
         }
+
         public async Task<ServiceResult> UpdateAsync(UpdateUserRequest request)
         {
             var user = await userRepository.GetByIdAsync(request.Id);
@@ -131,6 +136,7 @@ namespace Portfolio.Services.Services.Users
 
             return ServiceResult.Success(HttpStatusCode.NoContent);
         }
+
         public async Task<ServiceResult> DeleteAsync(int id)
         {
             var anyUser = await userRepository.GetByIdAsync(id);
