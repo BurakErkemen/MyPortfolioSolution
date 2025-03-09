@@ -17,6 +17,9 @@ namespace Portfolio.Repositories.Models.ContactForms
                 .IsRequired()
                 .HasMaxLength(150); // Email en fazla 150 karakter olabilir
 
+            builder.Property(x => x.Phone)
+                .HasMaxLength(11);
+
             builder.Property(x => x.Message)
                 .IsRequired()
                 .HasMaxLength(1000); // Mesaj en fazla 1000 karakter olabilir

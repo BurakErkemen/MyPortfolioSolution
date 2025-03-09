@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Portfolio.Repositories.Models.Users;
-using Portfolio.Services;
 using Portfolio.Services.Services.Users;
 using Portfolio.Services.Services.Users.Create;
 using Portfolio.Services.Services.Users.Update;
