@@ -3,6 +3,7 @@ using Portfolio.Repositories.Models.Certifications;
 using Portfolio.Repositories.Models.Educations;
 using Portfolio.Repositories.Models.Skills;
 using Portfolio.Repositories.Models.SocialMediaUrls;
+using Portfolio.Repositories.Models.Users;
 
 namespace Portfolio.Repositories.Models.AboutMe
 {
@@ -18,5 +19,9 @@ namespace Portfolio.Repositories.Models.AboutMe
         public List<CertificationModel> Certifications { get; set; } = [];
         public List<SocialMediaModel> SocialMediaLinks { get; set; } = [];
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        // Kullanıcıyla ilişkilendirme
+        public int UserId { get; set; }  // Foreign Key
+        public UserModel User { get; set; } = default!;  // Navigation Property
     }
 }

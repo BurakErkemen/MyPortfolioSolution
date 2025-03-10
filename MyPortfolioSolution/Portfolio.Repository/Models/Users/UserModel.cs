@@ -1,4 +1,6 @@
-﻿namespace Portfolio.Repositories.Models.Users
+﻿using Portfolio.Repositories.Models.AboutMe;
+
+namespace Portfolio.Repositories.Models.Users
 {
     public class UserModel
     {
@@ -10,6 +12,9 @@
         public UserRoles Role { get; set; }
         public AccountStatus IsActivate { get; set; }
         public DateTime CreatedAt { get; set; }
+
+        // Her kullanıcıya ait tek bir "Hakkımda" bölümü olabilir.
+        public AboutMeModel AboutMe { get; set; }
     }
     public enum UserRoles
     {

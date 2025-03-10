@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Portfolio.Repositories.Models.AboutMe;
 
 namespace Portfolio.Repositories.Models.Users
 {
@@ -45,6 +46,9 @@ namespace Portfolio.Repositories.Models.Users
             // Actıvate 
             builder.Property(u => u.IsActivate)
                 .HasDefaultValue(AccountStatus.Active);
+
+
+
         }
     }
 }
