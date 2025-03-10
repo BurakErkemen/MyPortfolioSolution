@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Portfolio.Repositories.Models.SocialMediaUrls
 {
-    public class SocialMediaUrls : IEntityTypeConfiguration<SocialMediaModel>
+    public class SocialMediaUrlsConfiguration : IEntityTypeConfiguration<SocialMediaModel>
     {
         public void Configure(EntityTypeBuilder<SocialMediaModel> builder)
         {
