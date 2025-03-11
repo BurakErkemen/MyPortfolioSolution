@@ -4,5 +4,6 @@ namespace Portfolio.Repositories.Models.Skills
 {
     public interface ISkillRepository : IGenericRepository<SkillModel>
     {
+        Task<IEnumerable<SkillModel>> GetByAboutMeIdAsync(int aboutMeId);
     }
 }
