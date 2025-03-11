@@ -1,4 +1,4 @@
-﻿using Portfolio.Repositories.Models.AboutMe;
+﻿using Portfolio.Repositories.Models.RepositoriesForAboutMe.AboutMe;
 
 namespace Portfolio.Repositories.Models.Users
 {
