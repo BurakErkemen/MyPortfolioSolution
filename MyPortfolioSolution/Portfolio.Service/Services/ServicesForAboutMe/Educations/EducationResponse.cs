@@ -4,5 +4,6 @@ public record EducationResponse(
     string Degree,
     string FieldOfStudy,
     DateTime StartDate,
-    DateTime? EndDate
+    DateTime? EndDate,
+    int AboutMeId
     );
