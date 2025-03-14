@@ -5,7 +5,7 @@ namespace Portfolio.Services.Services.ServicesForAboutMe.Skills
 {
     public interface ISkillServices
     {
-        Task<List<ServiceResult>> GettAllAsync();
+        Task<ServiceResult<List<SkillResponse>>> GetAllAsync();
         Task<ServiceResult<SkillResponse>> GetByIdAsync(int Id);
         Task<ServiceResult<CreateSkillsResponse>> CreateAsync(CreateSkillsRequest request);
         Task<ServiceResult> UpdateAsync(UpdateSkillsRequest request);

@@ -61,7 +61,7 @@ namespace Portfolio.Services.Services.ServicesForAboutMe.Educations
         public async Task<ServiceResult> UpdateAsync(UpdateEducationRequest request)
         {
             var anyEducation = await educationRepository.GetByIdAsync(request.Id);
-            if (anyEducation != null) return ServiceResult.Fail("Education Information Not Found!", HttpStatusCode.NotFound);
+            if (anyEducation is null) return ServiceResult.Fail("Education Information Not Found!", HttpStatusCode.NotFound);
 
             anyEducation!.SchoolName = request.SchoolName;
             anyEducation.Degree = request.Degree;
