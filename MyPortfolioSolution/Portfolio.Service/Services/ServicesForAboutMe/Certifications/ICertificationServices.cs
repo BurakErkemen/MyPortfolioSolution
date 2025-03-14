@@ -1,15 +1,16 @@
-﻿using Portfolio.Services.Services.ServicesForAboutMe.Educations.Create;
-using Portfolio.Services.Services.ServicesForAboutMe.Educations.Update;
+﻿using Portfolio.Services.Services.ServicesForAboutMe.Certifications.Create;
+using Portfolio.Services.Services.ServicesForAboutMe.Certifications.Update;
 
 namespace Portfolio.Services.Services.ServicesForAboutMe.Certifications
 {
-    public interface IEdutionServices
+    public interface ICertificationServices
     {
-        Task<List<ServiceResult>> GettAllAsync();
-        Task<ServiceResult<EducationResponse>> GetById(int Id);
-        Task<ServiceResult<CreateEducationResponse>> CreateAsync(CreateEducationRequest request);
-        Task<ServiceResult> UpdateAsync(UpdateEducationRequest request);
+        Task<ServiceResult<List<CertificationResponse>>> GetAllAsync();
+        Task<ServiceResult<CertificationResponse>> GetByIdAsync(int Id);
+        Task<ServiceResult<CreateCertificationsResponse>> CreateAsync(CreateCertificationsRequest request);
+        Task<ServiceResult> UpdateAsync(UpdateCertificationRequest request);
         Task<ServiceResult> DeleteAsync(int Id);
-        Task<ServiceResult<List<EducationResponse>>> EducationGetByAboutIdAsync();
+
+        Task<ServiceResult<List<CertificationResponse>>> CertificationGetByAboutIdAsync(int aboutId);
     }
 }

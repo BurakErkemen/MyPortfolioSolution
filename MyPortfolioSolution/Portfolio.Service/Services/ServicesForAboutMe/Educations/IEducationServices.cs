@@ -5,7 +5,7 @@ namespace Portfolio.Services.Services.ServicesForAboutMe.Educations
 {
     public interface IEducationServices
     {
-        Task<List<ServiceResult>> GettAllAsync();
+        Task<List<ServiceResult>> GetAllAsync();
         Task<ServiceResult<EducationResponse>> GetByIdAsync(int Id);
         Task<ServiceResult<CreateEducationResponse>> CreateAsync(CreateEducationRequest request);
         Task<ServiceResult> UpdateAsync(UpdateEducationRequest request);
