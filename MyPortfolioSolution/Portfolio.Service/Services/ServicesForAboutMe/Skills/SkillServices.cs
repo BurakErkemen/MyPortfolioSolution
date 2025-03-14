@@ -85,7 +85,7 @@ namespace Portfolio.Services.Services.ServicesForAboutMe.Skills
         {
             var skill = await skillRepository.GetByAboutMeIdAsync(aboutId);
 
-            if (!skill.Any())
+            if (skill is null)
                 return ServiceResult<List<SkillResponse>>.Fail("Skill Information Not Found!", HttpStatusCode.NotFound);
 
             var skillAsResponse = skill.Select(s => new SkillResponse(
