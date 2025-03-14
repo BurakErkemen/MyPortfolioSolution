@@ -30,7 +30,7 @@ namespace Portfolio.Repositories.Models.RepositoriesForAboutMe.Businesses
 
             // AboutMe ilişkisi (Many-to-One)
             builder.HasOne(b => b.AboutMe)
-                .WithMany(a => a.Businesses)
+                .WithMany(a => a.Business)
                 .HasForeignKey(b => b.AboutMeId)
                 .OnDelete(DeleteBehavior.Cascade); // AboutMe silinirse, bağlı Business kayıtları da silinir
         }

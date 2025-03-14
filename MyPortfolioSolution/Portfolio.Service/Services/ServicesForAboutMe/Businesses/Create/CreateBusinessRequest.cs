@@ -1,2 +1,7 @@
 ﻿namespace Portfolio.Services.Services.ServicesForAboutMe.Businesses.Create;
-public record CreateBusinessRequest();
+public record CreateBusinessRequest(
+    string CompanyName,
+    string Position,
+    DateTime StartDate,
+    DateTime? EndDate,
+    int AboutMeId);

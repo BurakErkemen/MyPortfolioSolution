@@ -1,2 +1,6 @@
-﻿namespace Portfolio.Services.Services.ServicesForAboutMe.AboutMe.Create;
-public record CreateAboutMeRequest();
+﻿public record CreateAboutMeRequest(
+    string FullName,
+    string ContactNo,
+    string Email,
+    int UserId
+);

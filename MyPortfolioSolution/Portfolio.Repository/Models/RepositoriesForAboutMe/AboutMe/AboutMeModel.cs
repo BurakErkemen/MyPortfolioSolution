@@ -13,11 +13,11 @@ namespace Portfolio.Repositories.Models.RepositoriesForAboutMe.AboutMe
         public string? FullName { get; set; }
         public string? ContactNo { get; set; }
         public string? Email { get; set; }
-        public List<EducationModel> Education { get; set; } = [];
-        public List<BusinessModel> Business { get; set; } = [];
-        public List<SkillModel> Skills { get; set; } = [];
-        public List<CertificationModel> Certifications { get; set; } = [];
-        public List<SocialMediaModel> SocialMediaLinks { get; set; } = [];
+        public List<EducationModel>? Education { get; set; } = [];
+        public List<BusinessModel>? Business { get; set; } = [];
+        public List<SkillModel>? Skills { get; set; } = [];
+        public List<CertificationModel>? Certifications { get; set; } = [];
+        public List<SocialMediaModel>? SocialMediaLinks { get; set; } = [];
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Kullanıcıyla ilişkilendirme
