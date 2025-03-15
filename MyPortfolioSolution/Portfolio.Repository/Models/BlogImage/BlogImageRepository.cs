@@ -7,7 +7,7 @@ namespace Portfolio.Repositories.Models.BlogImage
     {
         public async Task<IEnumerable<BlogImageModel>> GetImagesByBlogIdAsync(int blogId)
         {
-            return await context.BlogImages
+            return await Context.BlogImages
                 .Where(bi => bi.BlogId == blogId)
                 .OrderBy(bi => bi.OrderIndex) // Sıralama için
                 .ToListAsync();
