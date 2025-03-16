@@ -1,20 +1,22 @@
-﻿using Portfolio.Repositories.Models.Users;
-using Portfolio.Repositories.Models.BlogImage;
-
-namespace Portfolio.Repositories.Models.Blog
+﻿namespace Portfolio.Repositories.Models.Blog
 {
     public class BlogModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = default!;
-        public string Description { get; set; } = default!;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // Varsayılan değer UTC saatine göre atanır
+        public int BlogId { get; set; }  // Blog'un benzersiz kimliği
+        public string Title { get; set; }  // Başlık
+        public string Slug { get; set; }  // URL dostu başlık
+        public string Content { get; set; }  // Blog içeriği
+        public string Summary { get; set; }  // Kısa özet
+        public string CoverImageUrl { get; set; }  // Kapak görseli
 
-        // Kullanıcıyla ilişkilendirme
-        public int UserId { get; set; }  // Foreign Key
-        public UserModel User { get; set; } = default!;  // Navigation Property
+        public DateTime CreatedAt { get; set; } = DateTime.Now;  // Oluşturulma tarihi
+        public DateTime? UpdatedAt { get; set; }  // Güncellenme tarihi (opsiyonel)
+        public bool IsPublished { get; set; }  // Yayınlanma durumu
 
-        // Blog görselleri ile ilişkilendirme
-        public List<BlogImageModel> BlogImages { get; set; } = new();
+        public int ViewCount { get; set; } = 0;  // Görüntülenme sayısı
+        public List<string> Tags { get; set; } = new();  // Etiketler (örn: C#, .NET, Backend)
+
+        public string MetaTitle { get; set; }  // SEO başlığı
+        public string MetaDescription { get; set; }  // SEO açıklaması
     }
 }

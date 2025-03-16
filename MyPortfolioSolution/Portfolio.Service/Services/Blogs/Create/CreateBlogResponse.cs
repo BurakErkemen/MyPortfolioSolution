@@ -1,2 +1,2 @@
 ﻿namespace Portfolio.Services.Services.Blogs.Create;
-    public record CreateBlogResponse(int Id);
+    public record CreateBlogResponse(string Id);

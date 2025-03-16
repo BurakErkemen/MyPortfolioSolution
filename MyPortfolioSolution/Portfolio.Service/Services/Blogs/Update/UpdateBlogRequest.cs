@@ -1,6 +1,6 @@
 ﻿namespace Portfolio.Services.Services.Blogs.Update;
 public record UpdateBlogRequest(
-    int Id,
+    string Id,  // Değiştirildi (int yerine string)
     string Name,
     string Description,
-    List<string> ImagesUrl);
+    List<string> BlogImages);

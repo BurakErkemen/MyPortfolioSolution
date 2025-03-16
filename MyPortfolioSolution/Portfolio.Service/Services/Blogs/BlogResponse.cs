@@ -3,5 +3,5 @@ public record BlogResponse(
     string Name,
     string Description,
     DateTime CreatedAt,
-    int UserId,
-    List<string> ImagesUrl);
+    string UserId,
+    List<string> BlogImages); // Buradaki isim BlogModel ile uyumlu olmalı

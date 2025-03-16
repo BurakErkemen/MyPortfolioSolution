@@ -7,7 +7,7 @@ namespace Portfolio.Repositories.Models.Blog
     {
         public void Configure(EntityTypeBuilder<BlogModel> builder)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

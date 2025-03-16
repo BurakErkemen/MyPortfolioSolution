@@ -3,5 +3,5 @@ public record CreateBlogRequest(
     string Name,
     string Description,
     DateTime CreatedAt,
-    int UserId,
-    List<string> ImageUrls);
+    string UserId,  // Değiştirildi (int yerine string)
+    List<string> BlogImages);
