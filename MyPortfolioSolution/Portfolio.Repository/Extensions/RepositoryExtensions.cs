@@ -41,7 +41,7 @@ namespace Portfolio.Repositories.Extensions
 
             services.AddScoped<IUserRepository, UserRepository>();
 
-            services.AddScoped<IBlogRepository, BlogRepository>();
+            services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
             services.AddScoped<IContactFormRepository, ContactFormRepository>();
 
