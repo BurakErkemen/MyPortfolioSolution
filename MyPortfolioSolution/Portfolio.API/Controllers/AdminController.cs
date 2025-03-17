@@ -1,28 +1,34 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio.Services.Services.User;
+using Portfolio.Services.Services.UserJWT;
 
 namespace Portfolio.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin")]
     [ApiController]
-    public class AdminController(IAuthService authService) : CustomBaseController
+    [Authorize(Roles = "Admin")] // Sadece Admin kullanıcıları erişebilir
+    public class AdminController(IUserService userService) : CustomBaseController
     {
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        [HttpGet("getAllUsers")]
+        public async Task<IActionResult> GetAllUsers()
         {
-            var token = await authService.AuthenticateAsync(request.Email, request.Password);
-
-            if (token == null) return Unauthorized("Geçersiz giriş!");
-
-            return Ok(new { Token = token });
+            var result = await userService.GetAllAsync();
+            return CreateActionResult(result);
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        [HttpGet("users/{id:int}")]
+        public async Task<IActionResult> GetUserById(int id)
         {
-            await authService.(request.Email, request.Password);
-            return Ok("Kullanıcı başarıyla oluşturuldu!");
+            var result = await userService.GetByIdAsync(id);
+            return CreateActionResult(result);
         }
+
+        [HttpDelete("users/{id:int}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var result = await userService.DeleteAsync(id);
+            return CreateActionResult(result);
+        }
+
     }
 }
