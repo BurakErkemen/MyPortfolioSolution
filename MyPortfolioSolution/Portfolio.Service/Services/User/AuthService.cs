@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Portfolio.Services.Services.User
 {
-    public class AuthService (IUserRepository userRepository, IConfiguration configuration) : IAuthService
+    public class AuthService(IUserRepository userRepository, IConfiguration configuration) : IAuthService
     {
         public async Task<string?> AuthenticateAsync(string username, string password)
         {

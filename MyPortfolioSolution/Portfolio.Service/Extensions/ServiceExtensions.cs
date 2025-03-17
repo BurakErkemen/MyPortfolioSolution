@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Services.Services.ContactForms;
 using Portfolio.Services.Services.User;
-using Portfolio.Services.Services.Users;
+using Portfolio.Services.Services.UserJWT;
 using System.Reflection;
 
 namespace Portfolio.Services.Extensions
@@ -15,6 +15,8 @@ namespace Portfolio.Services.Extensions
         {
             services.AddFluentValidationAutoValidation();
             services.AddScoped<IAuthService, AuthService>();
+
+            services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IContactFormService, ContactFormService>();
 
